@@ -1,0 +1,25 @@
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+
+public class CheckoutOverview extends BasePage {
+    private final static By FINISH_BUTTON = By.id("finish");
+    private final static By CANCEL_BUTTON = By.id("cancel");
+
+    public CheckoutOverview(WebDriver driver) {
+        super(driver);
+    }
+    public void clickFinishButton(){
+        driver.findElement(FINISH_BUTTON).click();
+    }
+    public boolean isFinishButtonPresent(){
+        try {
+            driver.findElement(FINISH_BUTTON);
+        } catch (NoSuchElementException ex) {
+            return false;
+        }
+        return true;
+    }
+}
